@@ -90,7 +90,7 @@ link = "https://www.youtube.com/c/TechnoTimLive"
 
 [[params.social]]
 icon = "ti-comments-smiley" # themify icon pack : https://themify.me/themify-icons
-link = "https://l.technotim.live/discord"
+link = "https://l.technotim.com/discord"
 
 ################################ English Language ########################
 [Languages.en]
