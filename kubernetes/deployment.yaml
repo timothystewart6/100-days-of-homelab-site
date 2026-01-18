@@ -27,8 +27,8 @@ spec:
           image: "registry-value:latest"
           resources:
             requests:
-              memory: 50Mi
-              cpu: 10m
+              cpu: 50m
+              memory: 64Mi
           ports:
             - name: http
               containerPort: 80
