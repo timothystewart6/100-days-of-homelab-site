@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: one-hundred-days-of-homelab-com
-  replicas: 2
+  replicas: 3
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 3
   strategy:
