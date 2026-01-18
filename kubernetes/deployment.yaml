@@ -30,20 +30,39 @@ spec:
               memory: 50Mi
               cpu: 10m
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 80
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            failureThreshold: 30
+            timeoutSeconds: 1
           readinessProbe:
             httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 5
+              path: /health
+              port: http
+            initialDelaySeconds: 0
             periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 2
             successThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 15
+            failureThreshold: 3
+            timeoutSeconds: 2
       imagePullSecrets:
         - name: registry-credentials-limited-access-gitlab
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
-          whenUnsatisfiable: DoNotSchedule
+          whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
               app: one-hundred-days-of-homelab-com
