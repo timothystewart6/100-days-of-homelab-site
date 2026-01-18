@@ -2,6 +2,7 @@ stages:
   - test
   - docker
   - deploy
+  - flushcache
 
 variables:
   KUBECONFIG: .kube/config
