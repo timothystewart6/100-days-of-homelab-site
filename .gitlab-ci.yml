@@ -20,7 +20,7 @@ build:
     - yarn install --frozen-lockfile --check-files --cache-folder .yarn --prefer-offline
     - sed -i 's_localhost_https://100daysofhomelab.com_' config.toml
     - yarn build
-  image: node:18.13.0
+  image: node:22.23.4
   stage: test
   cache:
     <<: *global_cache
